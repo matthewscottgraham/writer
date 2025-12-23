@@ -1,0 +1,19 @@
+button {
+    background-color: #232323;
+}
+button:hover {
+    background-color: #343434;
+}
+
+.activeButton {
+    background-color: coral;
+    color: black;
+    font-weight: bold;
+}
+
+.activeButton:hover {
+    background-color: coral;
+    color: black;
+    font-weight: bold;
+    cursor: not-allowed;
+}
