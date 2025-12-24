@@ -1,8 +1,27 @@
-.objectListPanel{
+.objectListPanel {
     border: white solid 1px;
     border-radius: 0.6em;
     display: flex;
     flex-direction: column;
     gap: 0.5em;
     padding: 0.5em;
+}
+
+.floatingPanel {
+    background-color: #343434;
+    border: white solid 1px;
+    border-radius: 0.6em;
+    padding: 0.5em;
+    position: fixed;
+    left: 30%;
+    top: 10%;
+    height: 40%;
+    width: 40%;
+    z-index: 1000;
+}
+
+.floatingPanelHeader {
+    background-color: #213547;
+    flex-direction: row;
+    min-height: 2em;
 }
