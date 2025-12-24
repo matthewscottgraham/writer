@@ -1,9 +1,3 @@
 .scenePanel {
-    border: white solid 1px;
-    border-radius: 0.6em;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    padding: 0.5em;
 
 }
