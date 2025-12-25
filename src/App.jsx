@@ -3,7 +3,6 @@ import Navbar from './Components/Navbar/Navbar';
 import Sidebar from './Components/Sidebar/Sidebar';
 import WorkArea from './Components/WorkArea/WorkArea';
 import './App.css'
-import ObjectListPanel from "./Components/ObjectListPanel/ObjectListPanel.jsx";
 
 
 function App() {
@@ -25,35 +24,18 @@ function App() {
   );
 
   return (
-    <div>
+    <div className="app">
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <div>
-        <Sidebar>
-          <ObjectListPanel
-              isActive={currentPage === 'characters'}
-              state={characterState}
-              createItem={()=> ({
-                id: crypto.randomUUID(),
-                name: 'New Character'
-              })} />
-          <ObjectListPanel
-              isActive={currentPage === 'items'}
-              state={itemState}
-              createItem={()=> ({
-                id: crypto.randomUUID(),
-                name: 'New Item'
-              })} />
-          <ObjectListPanel
-              isActive={currentPage === 'scenes'}
-              state={sceneState}
-              createItem={()=> ({
-                id: crypto.randomUUID(),
-                name: 'New Scene'
-              })} />
-        </Sidebar>
-        <WorkArea />
+      <div className="content">
+        <Sidebar currentPage={currentPage}
+                 characterState={characterState}
+                 itemState={itemState}
+                 sceneState={sceneState} />
+        <WorkArea currentPage={currentPage}
+                  characterState={characterState}
+                  itemState={itemState}
+                  sceneState={sceneState} />
       </div>
-
     </div>
   )
 }

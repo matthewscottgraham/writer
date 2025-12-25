@@ -1,30 +1,51 @@
-.sidebar{
-
+.panel {
+    width: 100%;
 }
-.objectListPanel {
-    border: white solid 1px;
-    border-radius: 0.6em;
+
+.panelHeader {
+    border-bottom: black solid 1px;
     display: flex;
-    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-end;
+    padding-bottom: 1em;
+    width: 100%;
+}
+
+.navbar {
+    border: black solid 1px;
+    border-top-right-radius: 0.6em;
+    border-top-left-radius: 0.6em;
+    display: flex;
     gap: 0.5em;
     padding: 0.5em;
 }
 
-.floatingPanel {
-    background-color: #343434;
-    border: white solid 1px;
-    border-radius: 0.6em;
+.sidebar {
+    border-left: black solid 1px;
+    border-bottom: black solid 1px;
+    border-right: black solid 1px;
+    border-bottom-left-radius: 0.6em;
+    display: flex;
+    gap: 0.5em;
     padding: 0.5em;
-    position: fixed;
-    left: 30%;
-    top: 10%;
-    height: 40%;
-    width: 40%;
-    z-index: 1000;
+    min-width: 14em;
 }
 
-.floatingPanelHeader {
-    background-color: #213547;
-    flex-direction: row;
-    min-height: 2em;
+.workArea {
+    border-bottom: black solid 1px;
+    border-right: black solid 1px;
+    border-bottom-right-radius: 0.6em;
+    display: flex;
+    gap: 0.5em;
+    padding: 1em;
+    width: 100%;
+    height: 100%;
+}
+
+.objectListPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 0.5em;
+    width: 100%;
 }

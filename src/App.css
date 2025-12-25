@@ -8,17 +8,40 @@
 }
 
 html, body, #root {
+  display: flex;
   height: 100%;
+  width: 100%;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #111;
-  color: #eee;
+  background-color: seashell;
+  color: black;
 }
 
 /* Remove default button styles */
 button {
   background: none;
-  border: none;
+  border: black 1px solid;
   font: inherit;
-  color: inherit;
+  color: black;
   cursor: pointer;
+  height: 2em;
+  padding: 0.2em 0.6em;
+}
+
+button:hover {
+  background-color: #ddd3cc;
+}
+
+.app {
+  display: flex;
+  flex-grow: 1;
+  margin: 0 auto;
+  max-width: 1200px;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
 }
