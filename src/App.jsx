@@ -2,26 +2,18 @@ import { useState } from 'react';
 import Navbar from './Components/Navbar/Navbar';
 import Sidebar from './Components/Sidebar/Sidebar';
 import WorkArea from './Components/WorkArea/WorkArea';
+import entitySchema from './Schemas/entitySchemas.js';
 import './App.css'
 
+const initialCharacter = entitySchema.createEntity(entitySchema.character);
+const initialItem = entitySchema.createEntity(entitySchema.item);
+const initialScene = entitySchema.createEntity(entitySchema.scene);
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('scenes')
-
-  const characterState = useEntity(
-      [{ id: '1', name: 'New Character' }],
-      '1'
-  );
-
-  const itemState = useEntity(
-      [{ id: '1', name: 'New Item' }],
-      '1'
-  );
-
-  const sceneState = useEntity(
-      [{ id: '1', name: 'New Scene' }],
-      '1'
-  );
+  const [currentPage, setCurrentPage] = useState('scene')
+  const characterState = useEntity([initialCharacter], initialCharacter.id);
+  const itemState = useEntity([initialItem], initialItem.id);
+  const sceneState = useEntity([initialScene], initialScene.id);
 
   return (
     <div className="app">
@@ -35,6 +27,7 @@ function App() {
                   characterState={characterState}
                   itemState={itemState}
                   sceneState={sceneState} />
+
       </div>
     </div>
   )

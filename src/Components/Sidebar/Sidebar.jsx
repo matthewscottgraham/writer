@@ -1,4 +1,5 @@
 import React from "react";
+import entitySchema from "../../Schemas/entitySchemas.js";
 import panelStyles from "../../Styles/Panels.module.css";
 import ObjectListPanel from "../ObjectListPanel/ObjectListPanel.jsx";
 
@@ -6,26 +7,23 @@ function Sidebar({currentPage, characterState, itemState, sceneState}) {
   return (
       <div className={panelStyles.sidebar}>
         <ObjectListPanel
-            isActive={currentPage === 'characters'}
+            isActive={currentPage === 'character'}
             state={characterState}
-            createItem={()=> ({
-              id: crypto.randomUUID(),
-              name: 'New Character'
-            })} />
+            createItem={ ()=>
+                entitySchema.createEntity(entitySchema.character) }
+        />
         <ObjectListPanel
-            isActive={currentPage === 'items'}
+            isActive={currentPage === 'item'}
             state={itemState}
-            createItem={()=> ({
-              id: crypto.randomUUID(),
-              name: 'New Item'
-            })} />
+            createItem={ ()=>
+                entitySchema.createEntity(entitySchema.item) }
+        />
         <ObjectListPanel
-            isActive={currentPage === 'scenes'}
+            isActive={currentPage === 'scene'}
             state={sceneState}
-            createItem={()=> ({
-              id: crypto.randomUUID(),
-              name: 'New Scene'
-            })} />
+            createItem={ ()=>
+                entitySchema.createEntity(entitySchema.scene) }
+        />
       </div>
   );
 }

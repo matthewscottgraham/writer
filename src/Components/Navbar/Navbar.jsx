@@ -10,9 +10,9 @@ function Navbar({currentPage, setCurrentPage}) {
       <div className={panelStyles.navbar}>
         <h2>Writer</h2>
         <div style={{width: '100%' }} />
-        <button className={getClassName('characters')} onClick={()=>setCurrentPage('characters')}>Characters</button>
-        <button className={getClassName('items')} onClick={()=>setCurrentPage('items')}>Items</button>
-        <button className={getClassName('scenes')} onClick={()=>setCurrentPage('scenes')}>Scenes</button>
+        <button className={getClassName('character')} onClick={()=>setCurrentPage('character')}>Characters</button>
+        <button className={getClassName('item')} onClick={()=>setCurrentPage('item')}>Items</button>
+        <button className={getClassName('scene')} onClick={()=>setCurrentPage('scene')}>Scenes</button>
       </div>
     </nav>
   )
