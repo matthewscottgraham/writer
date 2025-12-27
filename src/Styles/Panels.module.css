@@ -11,6 +11,26 @@
     width: 100%;
 }
 
+.field {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    min-height: 2em;
+}
+
+.nestedPanel {
+    border: black dashed 1px;
+    border-radius: 0.5em;
+    padding: 1em;
+}
+
+.nestedItem {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    min-height: 2em;
+}
+
 .navbar {
     border: black solid 1px;
     border-top-right-radius: 0.6em;

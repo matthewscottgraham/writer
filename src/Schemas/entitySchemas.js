@@ -15,9 +15,16 @@ export const entitySchemas = {
   scene: {
     label: 'Scene',
     fields: [
-        { key: 'name', label: 'Name', type: 'text', defaultValue: 'New Scene'},
-        { key: 'description', label: 'Description', type: 'text', defaultValue: ''},
-        { key: 'story', label: 'Story', type: 'text', defaultValue: '' },
+      { key: 'name', label: 'Name', type: 'text', defaultValue: 'New Scene'},
+      { key: 'description', label: 'Description', type: 'text', defaultValue: ''},
+      { key: 'sequences',
+        label: 'Sequences',
+        type: 'object[]',
+        defaultValue: [],
+        fields: [
+          { key: 'sequence', label: 'Sequence', type: 'text', defaultValue: ''},
+        ]
+      }
     ]
   },
 
