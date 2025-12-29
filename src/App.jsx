@@ -13,7 +13,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState('scene')
   const characterState = useEntity([initialCharacter], initialCharacter.id);
   const itemState = useEntity([initialItem], initialItem.id);
-  const sceneState = useEntity([initialScene], initialScene.id);
+  const sceneState = useSceneEntity([initialScene], initialScene.id);
 
   return (
     <div className="app">
@@ -37,6 +37,14 @@ function useEntity(initialItems, initialID){
   const [list, setList] = useState(initialItems);
   const [currentID, setCurrentID] = useState(initialID);
   return{list, setList, currentID, setCurrentID };
+}
+
+function useSceneEntity(initialItems, initialID){
+  const [list, setList] = useState(initialItems);
+  const [currentID, setCurrentID] = useState(initialID);
+  const firstSequenceID = initialItems[0]?.sequences?.[0]?.id ?? null;
+  const [currentSequenceID, setCurrentSequenceID] = useState(firstSequenceID);
+  return{list, setList, currentID, setCurrentID, currentSequenceID, setCurrentSequenceID };
 }
 
 export default App

@@ -5,8 +5,6 @@
 .panelHeader {
     border-bottom: black solid 1px;
     display: flex;
-    flex-grow: 1;
-    justify-content: flex-end;
     padding-bottom: 1em;
     width: 100%;
 }
@@ -62,10 +60,40 @@
     height: 100%;
 }
 
+.workAreaContent{
+    padding-top: 1em;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
 .objectListPanel {
     display: flex;
     flex-direction: column;
     gap: 0.5em;
     padding: 0.5em;
     width: 100%;
+}
+
+.sequenceEditorPanel{
+    border-left: black solid 1px;
+    border-right: black solid 1px;
+    padding: 0 1em;
+    min-width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.textAreaField {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.textAreaField textarea {
+    flex: 1;
+    resize: none;
 }

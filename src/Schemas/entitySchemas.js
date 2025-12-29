@@ -22,7 +22,10 @@ export const entitySchemas = {
         type: 'object[]',
         defaultValue: [],
         fields: [
-          { key: 'sequence', label: 'Sequence', type: 'text', defaultValue: ''},
+          { key: 'name', type: 'text', defaultValue: 'New Sequence' },
+          { key: 'invokeType', type: 'text', defaultValue: 'interaction' },
+          { key: 'isSingleUse', type: 'boolean', defaultValue: false },
+          { key: 'text', type: 'text', defaultValue: ''}
         ]
       }
     ]

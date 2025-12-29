@@ -27,6 +27,34 @@ button {
   padding: 0.2em 0.6em;
 }
 
+input {
+  background-color: #ddd3cc;
+  color: black;
+  padding: 0.2em 0.6em;
+  border-radius: 0.4em;
+  border: 1px solid black;
+  font-size: 1em;
+}
+
+textarea {
+  background-color: #ddd3cc;
+  color: black;
+  padding: 0.2em 0.6em;
+  border-radius: 0.4em;
+  border: 1px solid black;
+  font-size: 1em;
+  font-family: inherit;
+}
+
+select{
+  background-color: #ddd3cc;
+  color: black;
+  padding: 0.2em 0.6em;
+  border-radius: 0.4em;
+  border: 1px solid black;
+  font-size: 1em;
+}
+
 button:hover {
   background-color: #ddd3cc;
 }
@@ -34,6 +62,7 @@ button:hover {
 .app {
   display: flex;
   flex-grow: 1;
+  height: 100vh;
   margin: 0 auto;
   max-width: 1200px;
   flex-direction: column;
@@ -42,6 +71,7 @@ button:hover {
 
 .content {
   display: flex;
+  flex: 1;
   flex-direction: row;
   height: 100%;
 }

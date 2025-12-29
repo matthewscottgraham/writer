@@ -34,7 +34,7 @@ function EntityEditor({isActive, state, schema}) {
         <button onClick={handleDelete}>Delete</button>
       </div>
 
-      <div style={{paddingTop: '1em'}}>
+      <div className={panelStyles.workAreaContent}>
         { schema.fields.map(field => (
           <FieldEditor
             key={field.id}
@@ -43,6 +43,14 @@ function EntityEditor({isActive, state, schema}) {
             onChange={value =>
               updateEntity(e => ({ ...e, [field.key]: value })
             )}
+            selectedID={ field.key === 'sequences'
+                ? state.currentSequenceID
+                : undefined
+            }
+            onSelect={ field.key === 'sequences'
+                ? state.setCurrentSequenceID
+                : undefined
+            }
           />
         ))}
       </div>
