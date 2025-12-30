@@ -1,8 +1,43 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import panelStyles from '../../Styles/Panels.module.css';
 
+const parsePassage = (rawText) => {
+  const tagRegex = /<([^=]+)=([^>]+)>/g;
+  let match;
+  const tags = [];
+  let bodyText = rawText;
+
+  while ((match = tagRegex.exec(rawText)) !== null) {
+    tags.push({
+      key: match[1].trim(),
+      value: match[2].trim()
+    });
+    bodyText = bodyText.replace(match[0], '');
+  }
+
+  return {tags, text: bodyText.trim()};
+}
+
+const parsePassages = (rawText) => {
+  return rawText
+      .split(/\n\s*\n/)
+      .map(block => block.trim())
+      .filter(Boolean)
+      .map(parsePassage);
+};
+
 function SequenceEditor({sequence, setSequence}) {
+
+  const passages = useMemo(
+      () => parsePassages(sequence.text ?? ''),
+      [sequence?.text]
+  );
+
   if (!sequence) return null;
+
+  const handleBodyTextChange = (e) => {
+    setSequence({...sequence, text: e.target.value});
+  }
 
   return (
       <div className={panelStyles.sequenceEditorPanel}>
@@ -29,6 +64,7 @@ function SequenceEditor({sequence, setSequence}) {
                 onChange={(e) => setSequence({...sequence, invokeType: e.target.value})}>
               <option>sceneStart</option>
               <option>interaction</option>
+              <option>scripted</option>
             </select>
           </div>
           <div className={panelStyles.nestedItem}>
@@ -45,7 +81,7 @@ function SequenceEditor({sequence, setSequence}) {
             Text:
             <textarea
                 value={sequence.text}
-                onChange={(e) => setSequence({...sequence, text: e.target.value})} />
+                onChange={handleBodyTextChange} />
           </div>
         </div>
       </div>
