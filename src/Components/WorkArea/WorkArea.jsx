@@ -5,7 +5,7 @@ import SequenceEditor from "../SequenceEditor/SequenceEditor.jsx";
 import SequencePreview from "../SequenceEditor/SequencePreview.jsx";
 import panelStyles from "../../Styles/Panels.module.css";
 
-function WorkArea({currentPage, characterState, itemState, sceneState}) {
+function WorkArea({currentPage, characterState, itemState, sceneState, currentSequence, passages}) {
 
   const stateMap = {
     character: characterState,
@@ -20,7 +20,6 @@ function WorkArea({currentPage, characterState, itemState, sceneState}) {
   const currentScene = isScene
       ? sceneState.list.find(s => s.id === sceneState.currentID)
       : null;
-  const currentSequence = currentScene?.sequences.find(s => s.id === sceneState.currentSequenceID);
 
   function updateSequence(updatedSequence) {
     sceneState.setList(prev => prev.map(
@@ -52,7 +51,7 @@ function WorkArea({currentPage, characterState, itemState, sceneState}) {
                   sequence={currentSequence}
                   setSequence={updateSequence}
               />
-              <SequencePreview sequence={currentSequence} />
+              <SequencePreview passages={passages} />
             </>
         )}
       </div>

@@ -1,0 +1,25 @@
+.passagePanel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding-top: 0.5em;
+}
+
+.passage {
+    background-color: cornflowerblue;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+}
+
+.passageText {
+
+}
+
+.passageTags {
+    border-bottom: 1px solid black;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
