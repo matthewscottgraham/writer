@@ -87,6 +87,15 @@
     flex-direction: column;
 }
 
+.textAreaToolPanel {
+    background-color: #ddd3cc;
+    border: black solid 1px;
+}
+
+.textAreaToolPanel button {
+    background-color: seashell;
+}
+
 .textAreaField {
     display: flex;
     flex-direction: column;

@@ -1,14 +1,31 @@
-import React, {useMemo} from 'react';
+import React, {useRef} from 'react';
 import panelStyles from '../../Styles/Panels.module.css';
 
 function SequenceEditor({sequence, setSequence}) {
-
-
-
+  const textAreaRef = useRef(null);
   if (!sequence) return null;
 
   const handleBodyTextChange = (e) => {
     setSequence({...sequence, text: e.target.value});
+  }
+
+  const handleAddCharacterTag = () => {
+    insertAtCaret('<Character=Ben>');
+  }
+
+  const insertAtCaret = (insert) => {
+    const textArea = textAreaRef.current;
+    if (!textArea) return;
+    const start = textArea.selectionStart;
+    const end = textArea.selectionEnd;
+    const newText = sequence.text.slice(0, start) + insert + sequence.text.slice(end);
+
+    setSequence({...sequence, text: newText});
+
+    requestAnimationFrame(() => {
+      textArea.focus();
+      textArea.setSelectionRange(start + insert.length, end + insert.length);
+    });
   }
 
   return (
@@ -50,8 +67,11 @@ function SequenceEditor({sequence, setSequence}) {
             />
           </div>
           <div className={panelStyles.textAreaField}>
-            Text:
+            <div className={panelStyles.textAreaToolPanel}>
+              <button onClick={handleAddCharacterTag}>Character Tag</button>
+            </div>
             <textarea
+                ref={textAreaRef}
                 value={sequence.text}
                 onChange={handleBodyTextChange} />
           </div>
