@@ -1,8 +1,9 @@
 import React, {useRef} from 'react';
 import panelStyles from '../../Styles/Panels.module.css';
 
-function SequenceEditor({sequence, setSequence}) {
+function SequenceEditor({sequence, setSequence, setEntityPickerType}) {
   const textAreaRef = useRef(null);
+
   if (!sequence) return null;
 
   const handleBodyTextChange = (e) => {
@@ -10,7 +11,11 @@ function SequenceEditor({sequence, setSequence}) {
   }
 
   const handleAddCharacterTag = () => {
-    insertAtCaret('<Character=Ben>');
+    setEntityPickerType('character')
+  }
+
+  const handleAddIdTag = () => {
+    insertAtCaret(`<id=${crypto.randomUUID()}>`);
   }
 
   const insertAtCaret = (insert) => {
@@ -68,7 +73,8 @@ function SequenceEditor({sequence, setSequence}) {
           </div>
           <div className={panelStyles.textAreaField}>
             <div className={panelStyles.textAreaToolPanel}>
-              <button onClick={handleAddCharacterTag}>Character Tag</button>
+              <button onClick={handleAddIdTag}>Insert ID</button>
+              <button onClick={handleAddCharacterTag}>Insert Character</button>
             </div>
             <textarea
                 ref={textAreaRef}
