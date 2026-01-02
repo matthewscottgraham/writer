@@ -38,7 +38,11 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Navbar currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              characters={characterState.list}
+              items={itemState.list}
+              scenes={sceneState.list} />
       <div className="content">
         <Sidebar currentPage={currentPage}
                  characterState={characterState}
