@@ -3,7 +3,7 @@ import {exportData} from '../../Utilities/Serializer.js'
 import panelStyles from "../../Styles/Panels.module.css";
 import buttonStyles from "../../Styles/Buttons.module.css";
 
-function Navbar({currentPage, setCurrentPage, characters, items, scenes}) {
+function Navbar({currentPage, setCurrentPage, characters, items, scenes, children}) {
   const getClassName = (page) => currentPage === page ? buttonStyles.activeButton : buttonStyles.button;
 
   return (
@@ -15,6 +15,7 @@ function Navbar({currentPage, setCurrentPage, characters, items, scenes}) {
         <button className={getClassName('character')} onClick={()=>setCurrentPage('character')}>Characters</button>
         <button className={getClassName('item')} onClick={()=>setCurrentPage('item')}>Items</button>
         <button className={getClassName('scene')} onClick={()=>setCurrentPage('scene')}>Scenes</button>
+        {children}
       </div>
     </nav>
   )

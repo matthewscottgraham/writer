@@ -39,6 +39,9 @@ function SequenceEditor({sequence, setSequence, setEntityPickerType}) {
           <h3>Sequence Editor</h3>
         </div>
         <div className={panelStyles.workAreaContent}>
+          <div>
+            id: {sequence.id}
+          </div>
           <div className={panelStyles.nestedItem}>
             <div style={{minWidth: '6em'}}>
               Name:

@@ -28,6 +28,12 @@ function App() {
         : [];
   },[currentSequence?.text]);
 
+  const deleteAll = () => {
+    characterState.setList([]);
+    itemState.setList([]);
+    sceneState.setList([]);
+  }
+
   useEffect(() => {
     clearTimeout(saveTimeout);
     saveTimeout = setTimeout(() => {
@@ -38,11 +44,14 @@ function App() {
 
   return (
     <div className="app">
+
       <Navbar currentPage={currentPage}
               setCurrentPage={setCurrentPage}
               characters={characterState.list}
               items={itemState.list}
-              scenes={sceneState.list} />
+              scenes={sceneState.list} >
+        <button onClick={()=>deleteAll()}>DeleteAll</button>
+      </Navbar>
       <div className="content">
         <Sidebar currentPage={currentPage}
                  characterState={characterState}

@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
 import styles from "./EntityPicker.module.css";
-import entitySchemas from "../../Schemas/entitySchemas.js";
+import {createNewEntity} from "../../Utilities/CreateEntity.js";
 
 function EntityPicker({schema, list, setList, onSelect}){
   const inputRef = useRef(null);
@@ -11,20 +11,9 @@ function EntityPicker({schema, list, setList, onSelect}){
   }
 
   const handleAddEntity = () => {
-    const input = inputRef.current.value.trim();
-    const baseId = input.toLowerCase().replace(/\s+/g, "_");
-    const matching = list
-      .map(e => e.id)
-      .filter(id => id === baseId || id.startsWith(`${baseId}_`));
-
-    const newEntity = entitySchemas.createEntity(schema)
-
-    newEntity.id = matching.length === 0
-      ? baseId
-      : `${baseId}_${matching.length}`;
-
-    newEntity.name = input;
-    setList([...list, newEntity]);
+    const value = inputRef.current.value;
+    createNewEntity(schema, value, list, setList);
+    inputRef.current.value = "";
   }
 
   return (

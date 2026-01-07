@@ -20,7 +20,7 @@ export const exportData = (characterList, itemList, sceneList) => {
       sequences: scene.sequences.map(seq => {
         return {
           ...seq,
-          text: parsePassages(seq.text)
+          passages: parsePassages(seq.text)
         };
       })
     };

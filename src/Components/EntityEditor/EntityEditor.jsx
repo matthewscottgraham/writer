@@ -35,6 +35,9 @@ function EntityEditor({isActive, state, schema}) {
       </div>
 
       <div className={panelStyles.workAreaContent}>
+        <div>
+          id: {entity.id}
+        </div>
         { schema.fields.map(field => (
           <FieldEditor
             key={field.id}
